@@ -10,7 +10,7 @@
 }
 
 #logo {
-  animation: growAndFadeIn 5s forwards;
+    animation: growAndFadeIn 5s forwards;
 }
 
 body {
@@ -23,13 +23,15 @@ body {
   header {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
-    margin-bottom: 0px;
+    margin-bottom: 0px; /* maybe problematic*/
   }
 
   .nav_links {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     /* width: 100%; */
   }
 
@@ -53,8 +55,8 @@ body {
   .card {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    flex-basis: 450px;
+    flex-wrap: nowrap; /* to make sure a smaller gap between the last two elements in each card container */
+    flex: 0.3 1 450px; /* this includes the flex-basis property */
 
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -65,9 +67,9 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    flex-basis: 450px;
+    flex: 0.3 1 450px; /* this includes the flex-basis property */
   }
-  
+
   .gallery img {
     border: 10px solid #50C7C7;
     margin: 10px;
@@ -76,8 +78,8 @@ body {
 
   .gallery {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
 
     /* width: 100%;
     height: 100%; */
@@ -88,6 +90,7 @@ body {
         flex-direction: row;
         justify-content: space-between;
     }
+
     .nav_links {
         flex-direction: row;
         justify-content: space-between;
@@ -96,12 +99,21 @@ body {
     .pricing {
         align-items: center;
     }
-      
-      .pricing .card, .card {
-        flex-basis: 275px; /* Set the base width for each card */
-        margin: 10px; /* Add some space around each card */
+
+    .card {
+        flex-grow: 0;
+        flex-basis: 275px;
+        margin: 10px;
     }
-      
+
+    main {
+        padding-top: 90px;
+    }
+
+    body > header:first-child {
+        position: fixed;
+        width: 100%
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -116,15 +128,18 @@ body {
         background-image: none;
     }
 
-    /* header {
-        flex-direction: column;
+    main {
+        margin-top: 20px;
+    }
+
+    header {
         flex-wrap: wrap;
-    } */
+    }
 
     .nav_links {
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: space-around;
     }
 
     #gallery {
@@ -148,5 +163,9 @@ body {
 
     .card ul > :nth-child(2)::after {
         content: "\1F44D"; /* Unicode for thumbs up emoji */
+    }
+
+    footer {
+        margin-top: 300px; /* to make the footer on another page */
     }
 }
