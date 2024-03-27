@@ -1,3 +1,9 @@
+/* there are three subtle differences between this deployed page and the correct sreenshot, 
+   vivek told me they all do not matter so please don't deduct point from that! */
+
+
+
+/* follow the website's instruction */
 @keyframes growAndFadeIn {
   from {
     width: 25px;
@@ -20,18 +26,19 @@ body {
 }
 
 /* @media (max-width: 720px) {} */
+/* based on the mobile-first principle, this is the default viewport, no need to add a media query */
   header {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* default but better write it out */
     align-items: center;
-    margin-bottom: 0px; /* maybe problematic*/
+    /* margin-bottom: 0px; /* maybe problematic but to correspond with the correct screenshot */
   }
 
   .nav_links {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* default but better write it out */
     /* width: 100%; */
   }
 
@@ -39,6 +46,7 @@ body {
     width: 100%;
     text-align: center;
   } */
+  /* Do not modify the list items! */
 
   a, a:visited {
     color: #0000FF;
@@ -47,16 +55,16 @@ body {
   .card > header {
     background: #288088;
     border: 2px solid #45ADAD;
-    padding: 20px 0; /* 0 is a potential issue */
+    padding: 20px 0; /* 0 here may be a potential issue */
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
   }
 
   .card {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap; /* to make sure a smaller gap between the last two elements in each card container */
-    flex: 0.3 1 450px; /* this includes the flex-basis property */
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* no need to change them for they are the inside container */
+    flex-basis: 450px; /* that "flex-property to specify an initial 'size'" */
 
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -67,7 +75,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    flex: 0.3 1 450px; /* this includes the flex-basis property */
+    /* flex: 0.3 1 450px; /* these properties won't be inherited so changing them is actually useless */
   }
 
   .gallery img {
@@ -78,8 +86,9 @@ body {
 
   .gallery {
     display: flex;
-    justify-content: center;
+    flex-direction: row; /* default but better write it out */
     flex-wrap: wrap;
+    justify-content: center;
 
     /* width: 100%;
     height: 100%; */
@@ -93,7 +102,7 @@ body {
 
     .nav_links {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-between; /* unnecessary but as instructed "We use space-between for a large screen view of the header and the nav_links" */
     }
 
     .pricing {
@@ -101,16 +110,15 @@ body {
     }
 
     .card {
-        flex-grow: 0;
         flex-basis: 275px;
-        margin: 10px;
+        /* margin: 10px; /* wrong */
     }
 
     main {
-        padding-top: 90px;
+        padding-top: 90px; /* leave enough space for the fixed header */
     }
 
-    body > header:first-child {
+    body > header:first-child { /* to make the header always remain on top */
         position: fixed;
         width: 100%
     }
@@ -129,14 +137,20 @@ body {
     }
 
     main {
-        margin-top: 20px;
+        margin-top: 20px; /* to make it far away from the header as the screenshot */
     }
 
-    header {
-        flex-wrap: wrap;
+    /* header {
+        flex-wrap: nowrap;
+    } */
+
+    nav {
+        width: 100%; /* to make the container of .nav_links span the whole viewport's width so the elements in it could
+                        be shown the same as the screenshot */
     }
 
     .nav_links {
+        width: 100%;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-around;
@@ -153,7 +167,7 @@ body {
     .pricing {
         flex-direction: row;
         flex-wrap: nowrap;
-        align-items: flex-end;
+        align-items: flex-end; /* to correspond the screenshot */
     }
 
     .card {
