@@ -4,6 +4,7 @@
 
 
 /* follow the website's instruction */
+/* Keyframes for logo animation on page load */
 @keyframes growAndFadeIn {
   from {
     width: 25px;
@@ -19,6 +20,7 @@
     animation: growAndFadeIn 5s forwards;
 }
 
+/* General body styles with fallback font and background */
 body {
     font-family: 'Poppins', serif;
     background-image: url('/images/concrete_seamless.png');
@@ -94,6 +96,7 @@ body {
     height: 100%; */
   }
 
+/* Styles for screens wider than 900px */
 @media (min-width: 900px) {
     header {
         flex-direction: row;
@@ -110,7 +113,7 @@ body {
     }
 
     .card {
-        flex-basis: 275px;
+        flex-basis: 275px; /* Adjust the base size for card elements */
         /* margin: 10px; /* wrong */
     }
 
@@ -130,6 +133,7 @@ body {
     }
 }
 
+/* Styles for print media */
 @media print {
     body {
         font-family: Arial, Helvetica;
@@ -156,6 +160,7 @@ body {
         justify-content: space-around;
     }
 
+    /* Hide navigation and gallery for printing */
     #gallery {
         display: none;
     }
@@ -167,7 +172,7 @@ body {
     .pricing {
         flex-direction: row;
         flex-wrap: nowrap;
-        align-items: flex-end; /* to correspond the screenshot */
+        align-items: flex-end; /* Align pricing elements at the bottom */
     }
 
     .card {
@@ -175,6 +180,7 @@ body {
         flex-basis: 325px;
     }
 
+    /* Adding thumbs-up icon to the list items in cards */
     .card ul > :nth-child(2)::after {
         content: "\1F44D"; /* Unicode for thumbs up emoji */
     }
